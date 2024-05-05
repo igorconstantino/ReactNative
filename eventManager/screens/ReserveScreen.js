@@ -11,11 +11,16 @@ const ReserveScreen = ({ route, navigation }) => {
 		navigation.goBack();
 	};
 
+	const handleBack = () => {
+		navigation.goBack();
+	};
+
 	return (
 		<View>
 			<TextInput placeholder="Nome" value={name} onChangeText={setName} />
 			<TextInput placeholder="Ingressos" value={String(tickets)} onChangeText={text => setTickets(Number(text))} keyboardType="numeric" />
 			<Button title="Confirmar Reserva" onPress={handleReserve} />
+			<Button title="Voltar" onPress={handleBack} />
 		</View>
 	);
 };
