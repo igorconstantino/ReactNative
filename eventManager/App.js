@@ -1,32 +1,25 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './screens/HomeScreen';
-import ManageScreen from './screens/ManageScreen';
-import ReserveScreen from './screens/ReserveScreen';
-import StatusScreen from './screens/StatusScreen';
+import { StyleSheet, Text, View } from 'react-native';
+import Example_mazza from './calendarios_types/mmazzarolo';
+import Example_maggi from './calendarios_types/maggialejandro';
+import Example_henninghall_modal from './calendarios_types/henninghall_modal';
+import Example_henninghall_inlined from './calendarios_types/henninghall_inlined';
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+export default function App() {
+  return ( //é só preciso descomentar cada um para teste, fazendo teste um de cada vez
+    <Example_mazza></Example_mazza>
+    // <Example_maggi></Example_maggi>
+    // <Example_henninghall_modal></Example_henninghall_modal>
+    // <Example_henninghall_inlined></Example_henninghall_inlined>
+  );
+}
 
-const TabNavigator = () => (
-    <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Gerenciar" component={ManageScreen} />
-    </Tab.Navigator>
-);
-
-const App = () => {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Home" component={TabNavigator} />
-                <Stack.Screen name="Reserve" component={ReserveScreen} />
-                <Stack.Screen name="Status" component={StatusScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
-};
-
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
